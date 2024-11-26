@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
-const { error } = require("console");
 
 const app = express();
 const PORT = 3000;
@@ -55,7 +54,7 @@ app.get("/login", (request, response) => {
 app.post("/login", (request, response) => {
   const { email, password } = request.body;
 
-  const user = USERS.find((u) => u.email === email);
+  const user = USERS.find((user) => user.email === email);
   if (!user) {
     return response.render("login", { error: "Invalid email or password" });
   }
