@@ -4,13 +4,15 @@
 <% if (role === 'admin') { %>
 <h2>Registered Users:</h2>
 <ul>
-  <% users.forEach((user) => { %>
+  <% users.forEach((user, index) => { %>
   <li>
-    <strong>Name:</strong> <%= user.username %>, <strong>Email:</strong> <%=
-    user.email %>, <strong>Role:</strong> <%= user.role %>
+    <strong>#<%= index + 1 %> Name:</strong> <%= user.username %>,
+    <strong>Email:</strong> <%= user.email %>, <strong>Role:</strong> <%=
+    user.role %>
   </li>
   <% }) %>
 </ul>
+<p><strong>Total Users:</strong> <%= users.length %></p>
 <% } else { %>
 <p>This is your user dashboard.</p>
 <% } %>
